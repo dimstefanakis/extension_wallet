@@ -2,11 +2,17 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import { Flex, Text, Divider } from "@chakra-ui/layout";
 import Link from "next/link";
 import ViaPhone from './ViaPhone';
+import ViaEmail from './ViaEmail';
 import AlreadyHaveAnAccount from "../../../flat/AlreadyHaveAnAccount";
 
 function Register(){
     return (
-      <Flex justifyContent="center" alignItems="center" width="100%" flexFlow="column">
+      <Flex
+        justifyContent="center"
+        alignItems="center"
+        width="100%"
+        flexFlow="column"
+      >
         <Tabs variant="unstyled" width="100%" justifyContent="center">
           <TabList my={6} justifyContent="center">
             <Tab
@@ -14,23 +20,24 @@ function Register(){
               borderRadius="10px"
               _selected={{ border: "1px solid #BEBEC2" }}
             >
-              Phone
+              Email
             </Tab>
             <Tab
               border="1px solid transparent"
               borderRadius="10px"
               _selected={{ border: "1px solid #BEBEC2" }}
             >
-              Email
+              Phone
             </Tab>
           </TabList>
 
           <TabPanels display="flex" justifyContent="center" width="100%">
             <TabPanel width="100%">
-              <ViaPhone />
+              <ViaEmail/>
             </TabPanel>
-            <TabPanel>
-              <p>two!</p>
+
+            <TabPanel width="100%">
+              <ViaPhone />
             </TabPanel>
           </TabPanels>
         </Tabs>
@@ -44,7 +51,7 @@ function Register(){
             <a style={{ color: "#2196f3" }}>Privacy Policy</a>
           </Link>
         </Text>
-        <Divider my={10}/>
+        <Divider my={10} />
         <AlreadyHaveAnAccount />
       </Flex>
     );

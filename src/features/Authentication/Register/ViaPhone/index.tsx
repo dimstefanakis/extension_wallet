@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import InputMask from "react-input-mask";
 import { FormControl, FormLabel, Input, NumberInput } from "@chakra-ui/react";
 import ContinueButton from "../../../../flat/ContinueButton";
+import { setRegisterType, setRegisterValue } from "../../authenticationSlice";
+import { RootState } from "../../../../store";
 
-function LoginViaPhone() {
-  const [phone, setPhone] = useState('');
+function RegisterViaPhone() {
+  const dispatch = useDispatch();
+  const {registerValue} = useSelector((state: RootState)=>state.authentication);
 
   function onPhoneChange(event: React.FormEvent<HTMLInputElement>) {
-    setPhone(event.currentTarget.value);
+    dispatch(setRegisterValue(event.currentTarget.value))
+  }
+
+  function onContinueClick(){
+    dispatch(setRegisterType('phone'));
   }
 
   return (
@@ -30,9 +37,11 @@ function LoginViaPhone() {
         // so just ignore it
         maskChar=""
       />
-      <ContinueButton isDisabled={!phone}>Continue</ContinueButton>
+      <ContinueButton isDisabled={!registerValue} onClick={onContinueClick}>
+        Continue
+      </ContinueButton>
     </FormControl>
   );
 }
 
-export default LoginViaPhone;
+export default RegisterViaPhone;
