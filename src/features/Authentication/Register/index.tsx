@@ -1,9 +1,10 @@
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
-import { Flex, Text, Divider } from "@chakra-ui/layout";
+import { Flex, Text } from "@chakra-ui/layout";
 import Link from "next/link";
 import ViaPhone from './ViaPhone';
 import ViaEmail from './ViaEmail';
 import AlreadyHaveAnAccount from "../../../flat/AlreadyHaveAnAccount";
+import Divider from "../../../flat/Divider";
 
 function Register(){
     return (
@@ -51,7 +52,7 @@ function Register(){
             <a style={{ color: "#2196f3" }}>Privacy Policy</a>
           </Link>
         </Text>
-        <Divider my={10} />
+        <Divider />
         <AlreadyHaveAnAccount />
       </Flex>
     );

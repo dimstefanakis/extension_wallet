@@ -1,21 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
 import { FormControl, Input } from "@chakra-ui/react";
 import ContinueButton from "../../../../flat/ContinueButton";
-import { setRegisterType, setRegisterValue } from "../../authenticationSlice";
+import {
+  setRegisterType,
+  setRegisterEmailValue,
+} from "../../authenticationSlice";
 import { RootState } from "../../../../store";
 
 function RegisterViaEmail() {
+  const router = useRouter();
   const dispatch = useDispatch();
   const { registerValue } = useSelector(
     (state: RootState) => state.authentication
   );
 
   function onEmailChange(event: React.FormEvent<HTMLInputElement>) {
-    dispatch(setRegisterValue(event.currentTarget.value));
+    dispatch(setRegisterEmailValue(event.currentTarget.value));
   }
 
   function onContinueClick() {
     dispatch(setRegisterType("email"));
+    router.push('/verification');
   }
 
   return (
@@ -31,7 +37,7 @@ function RegisterViaEmail() {
         width="80%"
         placeholder="johndoe@gmail.com"
       />
-      <ContinueButton isDisabled={!registerValue} onClick={onContinueClick}>
+      <ContinueButton isDisabled={!registerValue.email} onClick={onContinueClick}>
         Continue
       </ContinueButton>
     </FormControl>

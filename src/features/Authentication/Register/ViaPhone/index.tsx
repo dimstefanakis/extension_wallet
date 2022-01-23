@@ -1,20 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
 import InputMask from "react-input-mask";
 import { FormControl, FormLabel, Input, NumberInput } from "@chakra-ui/react";
 import ContinueButton from "../../../../flat/ContinueButton";
-import { setRegisterType, setRegisterValue } from "../../authenticationSlice";
+import { setRegisterType, setRegisterPhoneValue } from "../../authenticationSlice";
 import { RootState } from "../../../../store";
 
 function RegisterViaPhone() {
+  const router = useRouter();
   const dispatch = useDispatch();
   const {registerValue} = useSelector((state: RootState)=>state.authentication);
 
   function onPhoneChange(event: React.FormEvent<HTMLInputElement>) {
-    dispatch(setRegisterValue(event.currentTarget.value))
+    dispatch(setRegisterPhoneValue(event.currentTarget.value));
   }
 
   function onContinueClick(){
     dispatch(setRegisterType('phone'));
+    router.push("/verification");
   }
 
   return (
@@ -37,7 +40,7 @@ function RegisterViaPhone() {
         // so just ignore it
         maskChar=""
       />
-      <ContinueButton isDisabled={!registerValue} onClick={onContinueClick}>
+      <ContinueButton isDisabled={!registerValue.phone} onClick={onContinueClick}>
         Continue
       </ContinueButton>
     </FormControl>
