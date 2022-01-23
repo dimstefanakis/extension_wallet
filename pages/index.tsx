@@ -5,16 +5,20 @@ import { useSelector } from "react-redux";
 import { Flex } from "@chakra-ui/layout";
 import Header from "../src/flat/Header";
 import Search from "../src/features/Search";
+import SectionHeader from "../src/flat/SectionHeader";
+import RecentExperiences from "../src/features/RecentExperiences";
 import styles from "../styles/Home.module.css";
 import { RootState } from "../src/store";
 
 const Home: NextPage = () => {
   const router = useRouter();
-  const {isLoggedIn} = useSelector((state: RootState)=>state.authentication);
+  const { isLoggedIn } = useSelector(
+    (state: RootState) => state.authentication
+  );
 
   useEffect(() => {
-    if(!isLoggedIn){
-      router.push('/register');
+    if (!isLoggedIn) {
+      router.push("/register");
     }
   }, [isLoggedIn]);
 
@@ -23,6 +27,7 @@ const Home: NextPage = () => {
       <Header />
       <Flex flexFlow="column" p={3}>
         <Search />
+        <RecentExperiences />
       </Flex>
     </>
   );
