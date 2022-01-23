@@ -29,6 +29,9 @@ export const authenticationSlice = createSlice({
     },
     setAccount: (state, action) => {
       state.account = action.payload;
+      // this obviously shouldn't work like this but for the sake of the exercise
+      // I assume that setAccount always works
+      state.isLoggedIn = true;
     }
   },
 });
@@ -38,4 +41,5 @@ export const {
   setRegisterValue,
   setRegisterEmailValue,
   setRegisterPhoneValue,
+  setAccount,
 } = authenticationSlice.actions;

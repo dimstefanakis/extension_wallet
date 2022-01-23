@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 import {
   FormControl,
   FormLabel,
@@ -13,6 +14,9 @@ import ContinueButton from "../src/flat/ContinueButton";
 import Divider from "../src/flat/Divider";
 import AlreadyHaveAnAccount from "../src/flat/AlreadyHaveAnAccount";
 import { AccountInterface } from "../src/features/Authentication/interface";
+import { setAccount } from "../src/features/Authentication/authenticationSlice";
+import useRegisterMutation from "../src/features/Authentication/Register/useRegister";
+import { RootState } from "../src/store";
 import accounts from "../mockdata/accounts.json";
 
 interface Errors {
@@ -23,6 +27,10 @@ interface Errors {
 // but for the sake of the excersice and since there is only one input that
 // needs to be validated I do it manually
 function CreateAccount() {
+  const register = useRegisterMutation();
+  const { registerType, registerValue } = useSelector(
+    (state: RootState) => state.authentication
+  );
   const [name, setName] = useState<string>("");
   const [accountId, setAccountId] = useState<string>("");
   const [errors, setErrors] = useState<Errors>({
@@ -54,6 +62,22 @@ function CreateAccount() {
       });
     }
   }, [accountId]);
+
+  function onRegisterClick() {
+    if (registerType == "email") {
+      register.mutate({
+        full_name: name,
+        account_id: accountId,
+        email: registerValue.email,
+      });
+    } else {
+      register.mutate({
+        full_name: name,
+        account_id: accountId,
+        phone: registerValue.phone,
+      });
+    }
+  }
 
   return (
     <>
@@ -93,6 +117,8 @@ function CreateAccount() {
           </FormControl>
           <Flex width="100%" justifyContent="center" alignItems="center">
             <ContinueButton
+              isLoading={register.isLoading}
+              onClick={onRegisterClick}
               isDisabled={
                 errors.accountId.length > 0 || name == "" || accountId == ""
               }

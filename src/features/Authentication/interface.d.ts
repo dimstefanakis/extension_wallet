@@ -12,7 +12,8 @@ export interface RegisterValue{
 }
 
 export interface AccountInterface{
-  email: string;
+  email?: string;
+  phone?: string;
   full_name: string;
   account_id: string;
 }
