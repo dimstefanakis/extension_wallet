@@ -5,6 +5,7 @@ export const authenticationSlice = createSlice({
   name: "authentication",
   initialState: <AuthenticationState>{
     isLoggedIn: false,
+    account: {},
     registerType: "email",
     // user might switch between phone and email tabs so we need to keep both values
     registerValue: {
@@ -26,6 +27,9 @@ export const authenticationSlice = createSlice({
     setRegisterPhoneValue: (state, action) => {
       state.registerValue.phone = action.payload;
     },
+    setAccount: (state, action) => {
+      state.account = action.payload;
+    }
   },
 });
 

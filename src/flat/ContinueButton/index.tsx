@@ -5,6 +5,7 @@ function ContinueButton(props: ButtonProps) {
   return (
     <Button
       bg="brand.100"
+      width="124px"
       color="white"
       mt={5}
       rightIcon={<ChevronRightIcon />}
