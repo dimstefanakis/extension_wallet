@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import type { NextPage } from "next";
-import Head from "next/head";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import { useSelector } from "react-redux";
-import styles from "../styles/Home.module.css";
+import { Flex } from "@chakra-ui/layout";
 import Header from "../src/flat/Header";
+import Search from "../src/features/Search";
+import styles from "../styles/Home.module.css";
 import { RootState } from "../src/store";
 
 const Home: NextPage = () => {
@@ -21,6 +21,9 @@ const Home: NextPage = () => {
   return (
     <>
       <Header />
+      <Flex flexFlow="column" p={3}>
+        <Search />
+      </Flex>
     </>
   );
 };
