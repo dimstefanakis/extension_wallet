@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   FormControl,
   FormLabel,
@@ -27,6 +27,7 @@ interface Errors {
 // but for the sake of the excersice and since there is only one input that
 // needs to be validated I do it manually
 function CreateAccount() {
+  const dispatch = useDispatch();
   const register = useRegisterMutation();
   const { registerType, registerValue } = useSelector(
     (state: RootState) => state.authentication
@@ -62,6 +63,12 @@ function CreateAccount() {
       });
     }
   }, [accountId]);
+
+  useEffect(()=>{
+    if(register.isSuccess){
+      dispatch(setAccount(register.data));
+    }
+  },[register]);
 
   function onRegisterClick() {
     if (registerType == "email") {

@@ -4,7 +4,7 @@ import { AuthenticationState } from "./interface";
 export const authenticationSlice = createSlice({
   name: "authentication",
   initialState: <AuthenticationState>{
-    isLoggedIn: false,
+    isLoggedIn: true,
     account: {},
     registerType: "email",
     // user might switch between phone and email tabs so we need to keep both values
@@ -32,6 +32,7 @@ export const authenticationSlice = createSlice({
       // this obviously shouldn't work like this but for the sake of the exercise
       // I assume that setAccount always works
       state.isLoggedIn = true;
+      localStorage.setItem('loggedIn', 'true');
     }
   },
 });
