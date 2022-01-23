@@ -1,0 +1,53 @@
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
+import { Flex, Text, Divider } from "@chakra-ui/layout";
+import Link from "next/link";
+import ViaPhone from './ViaPhone';
+import AlreadyHaveAnAccount from "../../../flat/AlreadyHaveAnAccount";
+
+function Register(){
+    return (
+      <Flex justifyContent="center" alignItems="center" width="100%" flexFlow="column">
+        <Tabs variant="unstyled" width="100%" justifyContent="center">
+          <TabList my={6} justifyContent="center">
+            <Tab
+              border="1px solid transparent"
+              borderRadius="10px"
+              _selected={{ border: "1px solid #BEBEC2" }}
+            >
+              Phone
+            </Tab>
+            <Tab
+              border="1px solid transparent"
+              borderRadius="10px"
+              _selected={{ border: "1px solid #BEBEC2" }}
+            >
+              Email
+            </Tab>
+          </TabList>
+
+          <TabPanels display="flex" justifyContent="center" width="100%">
+            <TabPanel width="100%">
+              <ViaPhone />
+            </TabPanel>
+            <TabPanel>
+              <p>two!</p>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
+        <Text fontSize="12px" color="#6F6E73" textAlign="center">
+          by clicking continue you must agree to near labs{" "}
+          <Link href="#">
+            <a style={{ color: "#2196f3" }}>Terms & Conditions</a>
+          </Link>{" "}
+          and{" "}
+          <Link href="#">
+            <a style={{ color: "#2196f3" }}>Privacy Policy</a>
+          </Link>
+        </Text>
+        <Divider my={10}/>
+        <AlreadyHaveAnAccount />
+      </Flex>
+    );
+}
+
+export default Register;
