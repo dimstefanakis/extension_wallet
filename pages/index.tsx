@@ -7,6 +7,7 @@ import Header from "../src/flat/Header";
 import Search from "../src/features/Search";
 import SectionHeader from "../src/flat/SectionHeader";
 import RecentExperiences from "../src/features/RecentExperiences";
+import PopularCategories from "../src/features/PopularCategories";
 import styles from "../styles/Home.module.css";
 import { RootState } from "../src/store";
 
@@ -28,6 +29,7 @@ const Home: NextPage = () => {
       <Flex flexFlow="column" p={3}>
         <Search />
         <RecentExperiences />
+        <PopularCategories />
       </Flex>
     </>
   );

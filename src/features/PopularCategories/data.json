@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Exchanges",
+        "avatar": "/exchanges.png",
+        "color": "#EAEFFF"
+    },
+    {
+        "title": "Games",
+        "avatar": "/games.png",
+        "color": "#F5F5F5"
+    },
+    {
+        "title": "Marketplaces",
+        "avatar": "/marketplaces.png",
+        "color": "#E2F9F3"
+    },
+    {
+        "title": "Defi",
+        "avatar": "/defi2.png",
+        "color": "#FFF3EC"
+    }
+]
