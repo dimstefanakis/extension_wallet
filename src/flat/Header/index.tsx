@@ -21,6 +21,7 @@ function Header({ title }: HeaderProps) {
       justifyContent="center"
       alignItems="center"
       height={isLoggedIn ? "60px" : "50px"}
+      minHeight={isLoggedIn ? "60px" : "50px"}
       backgroundColor="#F5F5F5"
       borderBottom="1px solid #DFDFE0"
     >
