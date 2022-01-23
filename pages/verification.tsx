@@ -9,9 +9,21 @@ import Divider from "../src/flat/Divider";
 import { RootState } from "../src/store";
 
 function Verification() {
+  const [pinValue, setPinValue] = useState("");
+  const [pinValueComplete, setPinValueComplete] = useState(false);
+
   const { registerType, registerValue } = useSelector(
     (state: RootState) => state.authentication
   );
+
+  function onPinChange(value: string) {
+    setPinValue(value);
+    if (value.length == 6) {
+      setPinValueComplete(true);
+    } else {
+      setPinValueComplete(false);
+    }
+  }
 
   return (
     <>
@@ -30,7 +42,7 @@ function Verification() {
             Enter verification code
           </Text>
           <HStack mt={2}>
-            <PinInput focusBorderColor="brand.100">
+            <PinInput focusBorderColor="brand.100" onChange={onPinChange}>
               <PinInputField />
               <PinInputField />
               <PinInputField />
@@ -39,7 +51,7 @@ function Verification() {
               <PinInputField />
             </PinInput>
           </HStack>
-          <ContinueButton mt={8} />
+          <ContinueButton mt={8} isDisabled={!pinValueComplete} />
           <Divider />
           <Flex flexFlow="column" alignItems="center" fontSize="14px">
             <Text>Didn't receive your code?</Text>
