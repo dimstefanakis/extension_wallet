@@ -24,7 +24,7 @@ interface Errors {
 }
 
 // Error handling would be much cleaner with a library like formik
-// but for the sake of the excersice and since there is only one input that
+// but for the sake of the exercise and since there is only one input that
 // needs to be validated I do it manually
 function CreateAccount() {
   const dispatch = useDispatch();
