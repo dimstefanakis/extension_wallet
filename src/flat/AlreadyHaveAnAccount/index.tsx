@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@chakra-ui/button";
 import { Text, Flex, Box } from "@chakra-ui/layout";
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import PrimaryButton from "../PrimaryButton";
 
 function AlreadyHaveAnAccount() {
   return (
@@ -9,7 +10,9 @@ function AlreadyHaveAnAccount() {
       <Text>Already have a NEAR account?</Text>
       <Box mt={2}>
         <Link href="#">
-          <Button rightIcon={<ChevronRightIcon />} colorScheme="gray">Log in with NEAR</Button>
+          <PrimaryButton rightIcon={<ChevronRightIcon />} colorScheme="gray">
+            Log in with NEAR
+          </PrimaryButton>
         </Link>
       </Box>
     </Flex>

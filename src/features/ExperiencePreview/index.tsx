@@ -1,7 +1,7 @@
 import { Flex, Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import { ExperiencePreviewProps } from "./interface";
+import { ExperienceProps } from "../Experience/interface";
 
 function ExperiencePreview({
   title,
@@ -9,7 +9,7 @@ function ExperiencePreview({
   userCount,
   avatar,
   color,
-}: ExperiencePreviewProps) {
+}: ExperienceProps) {
   return (
     <Flex mb="10px" alignItems="center">
       <Image h="75px" w="75px" src={avatar} mr="17px" />
