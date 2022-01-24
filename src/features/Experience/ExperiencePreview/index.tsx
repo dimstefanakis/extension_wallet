@@ -19,7 +19,7 @@ function ExperiencePreview({
   }
 
   return (
-    <Flex mb="10px" alignItems="center" onClick={handleExperiencePreviewClick}>
+    <Flex mb="10px" alignItems="center" onClick={handleExperiencePreviewClick} data-testid="experiencePreview">
       <Image h="75px" w="75px" src={avatar} mr="17px" />
       <Flex flexFlow="column" flex="1" justifyContent="space-evenly">
         <Text fontSize="16px" fontWeight="600" color="text.200">

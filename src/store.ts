@@ -7,6 +7,30 @@ export const store = configureStore({
   },
 });
 
+
+export const testAuthenticatedStore = configureStore({
+  reducer: {
+    authentication: authenticationSlice.reducer,
+  },
+  preloadedState: {
+    authentication: {
+      isLoggedIn: true,
+      account: {
+        email: "johndoe@gmail.com",
+        full_name: "John doe",
+        account_id: "johnd.near",
+      },
+      registerType: 'email',
+      registerValue: {
+        email: 'test',
+        phone: '',
+      },
+      loading: false
+    },
+  },
+});
+
+
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}

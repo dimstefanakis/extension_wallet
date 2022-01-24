@@ -6,7 +6,7 @@ import experiences from "../../../../mockdata/experiences.json";
 function RecentExperiences() {
   return (
     <Flex flexFlow="column">
-      <SectionHeader title="Recent experiences" />
+      <SectionHeader title="Recent Experiences" />
       {experiences.map((experience) => {
         return (
           <ExperiencePreview

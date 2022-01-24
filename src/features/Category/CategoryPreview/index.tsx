@@ -6,6 +6,7 @@ import { CategoryProps } from "./interface";
 function CategoryPreview({ avatar, title, color }: CategoryProps) {
   return (
     <Flex
+      data-testid="categoryPreview"
       height="100px"
       borderRadius="6px"
       width="160px"
