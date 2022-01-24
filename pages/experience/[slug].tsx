@@ -6,7 +6,7 @@ import Header from "../../src/flat/Header";
 import ExperienceHero from "../../src/features/Experience/ExperienceHero";
 import ExperienceTabs from "../../src/features/ExperienceTabs";
 import { ExperienceProps } from "../../src/features/Experience/interface";
-import experiences from "../../src/data/experiences.json";
+import experiences from "../../mockdata/experiences.json";
 
 function ExperiencePage() {
   const router = useRouter();

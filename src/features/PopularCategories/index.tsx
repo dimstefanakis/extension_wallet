@@ -2,7 +2,7 @@ import React from "react";
 import { Flex, Text } from "@chakra-ui/layout";
 import SectionHeader from "../../flat/SectionHeader";
 import CategoryPreview from "../CategoryPreview";
-import categories from "./data.json";
+import categories from "../../../mockdata/categories.json";
 
 function PopularCategories() {
   return (

@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/layout";
 import SectionHeader from "../../flat/SectionHeader";
 import ExperiencePreview from "../ExperiencePreview";
-import experiences from "./data.json";
+import experiences from "../../../mockdata/experiences.json";
 
 function RecentExperiences() {
   return (
