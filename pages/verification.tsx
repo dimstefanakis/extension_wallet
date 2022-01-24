@@ -6,9 +6,11 @@ import { PinInput, PinInputField } from "@chakra-ui/pin-input";
 import Header from "../src/flat/Header";
 import ContinueButton from "../src/flat/ContinueButton";
 import Divider from "../src/flat/Divider";
+import useVerificationMutation from "../src/features/Authentication/Register/hooks/useVerification";
 import { RootState } from "../src/store";
 
 function Verification() {
+  const verify = useVerificationMutation();
   const [pinValue, setPinValue] = useState("");
   const [pinValueComplete, setPinValueComplete] = useState(false);
 
@@ -20,9 +22,14 @@ function Verification() {
     setPinValue(value);
     if (value.length == 6) {
       setPinValueComplete(true);
+      verify.mutate(parseInt(value));
     } else {
       setPinValueComplete(false);
     }
+  }
+
+  function onContinueClick() {
+    verify.mutate(parseInt(pinValue));
   }
 
   return (
@@ -51,7 +58,12 @@ function Verification() {
               <PinInputField />
             </PinInput>
           </HStack>
-          <ContinueButton mt={8} isDisabled={!pinValueComplete} />
+          <ContinueButton
+            mt={8}
+            isDisabled={!pinValueComplete}
+            isLoading={verify.isLoading}
+            onClick={onContinueClick}
+          />
           <Divider />
           <Flex flexFlow="column" alignItems="center" fontSize="14px">
             <Text>Didn't receive your code?</Text>

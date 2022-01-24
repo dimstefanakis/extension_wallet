@@ -15,10 +15,10 @@ test("Register", () => {
   render(<RegisterPage />);
   const tabs = screen.getAllByRole("tab");
   expect(tabs).toHaveLength(2);
-  const continuteButtons = screen.getAllByRole("button", {
+  const continueButtons = screen.getAllByRole("button", {
     name: "Continue",
   }) as HTMLButtonElement[];
-  continuteButtons.forEach((continueButton) => {
+  continueButtons.forEach((continueButton) => {
     expect(continueButton.disabled).toEqual(true);
   });
 });
@@ -27,11 +27,11 @@ test("Buttons should be disabled if there is no input", () => {
   render(<RegisterPage />);
   const tabs = screen.getAllByRole("tab");
   const emailInput = screen.getByTestId("email");
-  let continuteButtons = screen.getAllByRole("button", {
+  let continueButtons = screen.getAllByRole("button", {
     name: "Continue",
   }) as HTMLButtonElement[];
 
-  expect(continuteButtons[0].disabled).toEqual(true);
+  expect(continueButtons[0].disabled).toEqual(true);
   userEvent.type(emailInput, "test");
-  expect(continuteButtons[0].disabled).toEqual(false);
+  expect(continueButtons[0].disabled).toEqual(false);
 });

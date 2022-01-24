@@ -2,7 +2,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
- import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import Layout from "../src/flat/Layout";
 import { store } from "../src/store";
 import theme from "../src/theme";
