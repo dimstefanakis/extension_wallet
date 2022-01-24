@@ -37,7 +37,7 @@ function Verification() {
       <Header title="Verification" />
       <Flex flexFlow="column" justifyContent="center" mt={6}>
         <Text fontSize="14px" textAlign="center">
-          We've sent a 6-digit verification code to{" "}
+          We&apos;ve sent a 6-digit verification code to{" "}
           {registerType == "email" ? "the email address" : "your phone"}
         </Text>
         <Text textAlign="center" mt={2} color="#2196f3" fontSize="16px">
@@ -66,7 +66,7 @@ function Verification() {
           />
           <Divider />
           <Flex flexFlow="column" alignItems="center" fontSize="14px">
-            <Text>Didn't receive your code?</Text>
+            <Text>Didn&apos;t receive your code?</Text>
             <Text mt={7} textAlign="center" color="#2196f3">
               <Link href="#">
                 <a>Send to a different email address</a>

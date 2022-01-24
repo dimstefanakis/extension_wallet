@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
@@ -115,11 +116,13 @@ function CreateAccount() {
                 id="account_id"
                 placeholder="yourname"
               />
-              <InputRightAddon children=".near" />
+              <InputRightAddon>.near</InputRightAddon>
             </InputGroup>
             {/* I am assuming for scalability purposes there could be multiple errors here */}
             {errors.accountId?.map((err) => (
-              <FormErrorMessage>{err}</FormErrorMessage>
+              <React.Fragment key={err}>
+                <FormErrorMessage>{err}</FormErrorMessage>
+              </React.Fragment>
             ))}
           </FormControl>
           <Flex width="100%" justifyContent="center" alignItems="center">
