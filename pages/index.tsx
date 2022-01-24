@@ -8,20 +8,12 @@ import Search from "../src/features/Search";
 import SectionHeader from "../src/flat/SectionHeader";
 import RecentExperiences from "../src/features/Experience/RecentExperiences";
 import PopularCategories from "../src/features/Category/PopularCategories";
+import useNavigateToRegisterIfNotLoggedIn from "../src/features/Authentication/Register/hooks/useNavigateToRegisterIfNotLoggedIn";
 import styles from "../styles/Home.module.css";
 import { RootState } from "../src/store";
 
 const Home: NextPage = () => {
-  const router = useRouter();
-  const { isLoggedIn } = useSelector(
-    (state: RootState) => state.authentication
-  );
-
-  useEffect(() => {
-    if (!isLoggedIn) {
-      router.push("/register");
-    }
-  }, [isLoggedIn]);
+  useNavigateToRegisterIfNotLoggedIn();
 
   return (
     <>

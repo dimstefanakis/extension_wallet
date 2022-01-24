@@ -6,9 +6,11 @@ import Header from "../../src/flat/Header";
 import ExperienceHero from "../../src/features/Experience/ExperienceHero";
 import ExperienceTabs from "../../src/features/Experience/ExperienceTabs";
 import { ExperienceProps } from "../../src/features/Experience/interface";
+import useNavigateToRegisterIfNotLoggedIn from "../../src/features/Authentication/Register/hooks/useNavigateToRegisterIfNotLoggedIn";
 import experiences from "../../mockdata/experiences.json";
 
 function ExperiencePage() {
+  useNavigateToRegisterIfNotLoggedIn();
   const router = useRouter();
   const [experience, setExperience] = useState<ExperienceProps | null>(null);
   const { slug } = router.query;

@@ -7,10 +7,10 @@ import PrimaryButton from "../PrimaryButton";
 function AlreadyHaveAnAccount() {
   return (
     <Flex flexFlow="column" width="100%" alignItems="center">
-      <Text>Already have a NEAR account?</Text>
+      <Text color="text.200">Already have a NEAR account?</Text>
       <Box mt={2}>
         <Link href="#">
-          <PrimaryButton rightIcon={<ChevronRightIcon />} colorScheme="gray">
+          <PrimaryButton rightIcon={<ChevronRightIcon />}>
             Log in with NEAR
           </PrimaryButton>
         </Link>
