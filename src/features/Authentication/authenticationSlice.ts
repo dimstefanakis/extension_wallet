@@ -6,6 +6,7 @@ export const authenticationSlice = createSlice({
   initialState: <AuthenticationState>{
     isLoggedIn: true,
     account: {},
+    // verification page needs to know which method the user registered
     registerType: "email",
     // user might switch between phone and email tabs so we need to keep both values
     registerValue: {

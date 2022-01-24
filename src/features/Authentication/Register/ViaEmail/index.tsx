@@ -16,6 +16,8 @@ function RegisterViaEmail() {
   );
 
   function onEmailChange(event: React.FormEvent<HTMLInputElement>) {
+    // many errors could happen here for example the email is already taken
+    // should check if is actually an email beforehand
     dispatch(setRegisterEmailValue(event.currentTarget.value));
   }
 

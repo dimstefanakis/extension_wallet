@@ -12,6 +12,9 @@ function RegisterViaPhone() {
   const {registerValue} = useSelector((state: RootState)=>state.authentication);
 
   function onPhoneChange(event: React.FormEvent<HTMLInputElement>) {
+    // many errors could happen here for example the email is already taken
+    // should check if is actually an number beforehand, I'm also not really sure how phone
+    // validation works now, don't have the time to research it
     dispatch(setRegisterPhoneValue(event.currentTarget.value));
   }
 
