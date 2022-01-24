@@ -4,7 +4,7 @@ import { Flex, Text, Box } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
 import Header from "../../src/flat/Header";
 import ExperienceHero from "../../src/features/Experience/ExperienceHero";
-import ExperienceTabs from "../../src/features/ExperienceTabs";
+import ExperienceTabs from "../../src/features/Experience/ExperienceTabs";
 import { ExperienceProps } from "../../src/features/Experience/interface";
 import experiences from "../../mockdata/experiences.json";
 

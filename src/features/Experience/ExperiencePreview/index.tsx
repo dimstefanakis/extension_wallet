@@ -1,7 +1,7 @@
 import { Flex, Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import { ExperienceProps } from "../Experience/interface";
+import { ExperienceProps } from "../interface";
 
 function ExperiencePreview({
   title,

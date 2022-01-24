@@ -6,8 +6,8 @@ import { Flex } from "@chakra-ui/layout";
 import Header from "../src/flat/Header";
 import Search from "../src/features/Search";
 import SectionHeader from "../src/flat/SectionHeader";
-import RecentExperiences from "../src/features/RecentExperiences";
-import PopularCategories from "../src/features/PopularCategories";
+import RecentExperiences from "../src/features/Experience/RecentExperiences";
+import PopularCategories from "../src/features/Category/PopularCategories";
 import styles from "../styles/Home.module.css";
 import { RootState } from "../src/store";
 

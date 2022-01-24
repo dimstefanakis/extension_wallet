@@ -1,6 +1,6 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import {
   FormControl,
@@ -17,6 +17,7 @@ import AlreadyHaveAnAccount from "../src/flat/AlreadyHaveAnAccount";
 import { AccountInterface } from "../src/features/Authentication/interface";
 import { setAccount } from "../src/features/Authentication/authenticationSlice";
 import useRegisterMutation from "../src/features/Authentication/Register/hooks/useRegister";
+import useNavigateToMainPageIfLoggedIn from "../src/features/Authentication/Register/hooks/useNavigateToMainPageIfLoggedIn";
 import { RootState } from "../src/store";
 import accounts from "../mockdata/accounts.json";
 
@@ -28,6 +29,7 @@ interface Errors {
 // but for the sake of the exercise and since there is only one input that
 // needs to be validated I do it manually
 function CreateAccount() {
+  useNavigateToMainPageIfLoggedIn();
   const dispatch = useDispatch();
   const register = useRegisterMutation();
   const { registerType, registerValue } = useSelector(
@@ -69,7 +71,7 @@ function CreateAccount() {
     if(register.isSuccess){
       dispatch(setAccount(register.data));
     }
-  },[register]);
+  },[register, dispatch]);
 
   function onRegisterClick() {
     if (registerType == "email") {

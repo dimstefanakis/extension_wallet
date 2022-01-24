@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import { Flex, Text } from "@chakra-ui/layout";
 import Link from "next/link";
@@ -5,8 +7,10 @@ import ViaPhone from "./ViaPhone";
 import ViaEmail from "./ViaEmail";
 import AlreadyHaveAnAccount from "../../../flat/AlreadyHaveAnAccount";
 import Divider from "../../../flat/Divider";
+import useNavigateToMainPageIfLoggedIn from "./hooks/useNavigateToMainPageIfLoggedIn";
 
 function Register() {
+  useNavigateToMainPageIfLoggedIn();
   return (
     <Flex
       justifyContent="center"
