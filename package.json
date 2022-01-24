@@ -24,8 +24,10 @@
     "react-redux": "^7.2.6"
   },
   "devDependencies": {
+    "@testing-library/dom": "^8.11.2",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "@types/node": "17.0.10",
     "@types/react": "17.0.38",
     "babel-jest": "^27.4.6",

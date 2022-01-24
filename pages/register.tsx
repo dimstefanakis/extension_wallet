@@ -1,11 +1,11 @@
-import Login from "../src/features/Authentication/Register";
+import Register from "../src/features/Authentication/Register";
 import Header from "../src/flat/Header";
 
 function RegisterPage() {
   return (
     <>
       <Header />
-      <Login />
+      <Register />
     </>
   );
 }

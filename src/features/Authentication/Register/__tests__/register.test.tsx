@@ -1,22 +1,37 @@
 import React from "react";
-import {render, screen, cleanup} from '../../../../../test-utils';
+import { render, screen, cleanup, fireEvent } from "../../../../../test-utils";
+import userEvent from "@testing-library/user-event";
 import RegisterPage from "../../../../../pages/register";
 
+beforeEach(() => {
+  // render(<RegisterPage />);
+});
 
-beforeEach(()=>{
-  render(<RegisterPage />);
-})
-
-afterEach(()=>{
+afterEach(() => {
   cleanup();
-})
+});
 
 test("Register", () => {
   render(<RegisterPage />);
-  const tabs = screen.getAllByRole("tablist");
+  const tabs = screen.getAllByRole("tab");
   expect(tabs).toHaveLength(2);
-  const continuteButtons = screen.getAllByRole("button", {name: 'Continue'}) as HTMLButtonElement[];
+  const continuteButtons = screen.getAllByRole("button", {
+    name: "Continue",
+  }) as HTMLButtonElement[];
   continuteButtons.forEach((continueButton) => {
     expect(continueButton.disabled).toEqual(true);
   });
+});
+
+test("Buttons should be disabled if there is no input", () => {
+  render(<RegisterPage />);
+  const tabs = screen.getAllByRole("tab");
+  const emailInput = screen.getByTestId("email");
+  let continuteButtons = screen.getAllByRole("button", {
+    name: "Continue",
+  }) as HTMLButtonElement[];
+
+  expect(continuteButtons[0].disabled).toEqual(true);
+  userEvent.type(emailInput, "test");
+  expect(continuteButtons[0].disabled).toEqual(false);
 });

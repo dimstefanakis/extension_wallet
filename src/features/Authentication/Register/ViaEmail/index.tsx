@@ -37,9 +37,13 @@ function RegisterViaEmail() {
       <Input
         onChange={onEmailChange}
         width="80%"
+        data-testid="email"
         placeholder="johndoe@gmail.com"
       />
-      <ContinueButton isDisabled={!registerValue.email} onClick={onContinueClick}>
+      <ContinueButton
+        isDisabled={!registerValue.email}
+        onClick={onContinueClick}
+      >
         Continue
       </ContinueButton>
     </FormControl>

@@ -33,6 +33,7 @@ function RegisterViaPhone() {
     >
       <Input
         as={InputMask}
+        data-testid="phone"
         type="tel"
         onChange={onPhoneChange}
         width="80%"
