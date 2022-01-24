@@ -2,17 +2,21 @@
     {
         "title": "DeFi Swap",
         "description": "Swap your digital assets",
+        "longDescription": "",
         "userCount": 200,
         "avatar": "/defi.png",
         "color": "blue",
+        "url": "",
         "slug": "defi-swap"
     },
     {
         "title": "Docu sign",
         "description": "sign smart contracts seamlessly",
+        "longDescription": "it is easy to electronically sign, manage and distribute all your contracts and documents safely, securely, anywhere, anytime- paperlessly.",
         "userCount": 1000,
         "avatar": "/docu.png",
         "color": "#E5D0FF",
+        "url": "https://docusignn.io",
         "slug": "docu-sign"
     }
 ]

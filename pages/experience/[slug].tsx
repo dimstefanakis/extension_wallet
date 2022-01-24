@@ -4,6 +4,7 @@ import { Flex, Text, Box } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
 import Header from "../../src/flat/Header";
 import ExperienceHero from "../../src/features/Experience/ExperienceHero";
+import ExperienceTabs from "../../src/features/ExperienceTabs";
 import { ExperienceProps } from "../../src/features/Experience/interface";
 import experiences from "../../src/data/experiences.json";
 
@@ -36,6 +37,10 @@ function ExperiencePage() {
           title={experience.title}
           description={experience.description}
           userCount={experience.userCount}
+        />
+        <ExperienceTabs
+          longDescription={experience.longDescription}
+          url={experience.url}
         />
       </Flex>
     </>

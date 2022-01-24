@@ -8,7 +8,12 @@ function PrimaryButton(props: PrimaryButtonProps) {
   return (
     <Button
       rightIcon={props.rightIcon ? props.rightIcon : <ChevronRightIcon />}
-      colorScheme="gray"
+      backgroundColor="text.200"
+      color="white"
+      _hover={{ bg: "text.200" }}
+      _active={{
+        bg: "text.200",
+      }}
       {...props}
     >
       {props.children}
