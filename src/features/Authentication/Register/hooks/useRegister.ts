@@ -1,5 +1,5 @@
 import { useMutation } from "react-query";
-import { AccountInterface } from "../interface";
+import { AccountInterface } from "../../interface";
 
 function useRegisterMutation() {
   const mutation = useMutation((data: AccountInterface) => {

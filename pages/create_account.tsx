@@ -15,7 +15,7 @@ import Divider from "../src/flat/Divider";
 import AlreadyHaveAnAccount from "../src/flat/AlreadyHaveAnAccount";
 import { AccountInterface } from "../src/features/Authentication/interface";
 import { setAccount } from "../src/features/Authentication/authenticationSlice";
-import useRegisterMutation from "../src/features/Authentication/Register/useRegister";
+import useRegisterMutation from "../src/features/Authentication/Register/hooks/useRegister";
 import { RootState } from "../src/store";
 import accounts from "../mockdata/accounts.json";
 
