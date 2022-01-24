@@ -1,7 +1,7 @@
 import Login from "../src/features/Authentication/Register";
 import Header from "../src/flat/Header";
 
-function LoginPage() {
+function RegisterPage() {
   return (
     <>
       <Header />
@@ -10,4 +10,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default RegisterPage;
