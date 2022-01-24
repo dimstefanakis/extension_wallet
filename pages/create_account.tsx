@@ -10,18 +10,17 @@ import {
 } from "@chakra-ui/react";
 import { Input, InputGroup, InputRightAddon } from "@chakra-ui/input";
 import { Text, Flex, Box } from "@chakra-ui/layout";
+import { CloseIcon, InfoIcon } from "@chakra-ui/icons";
 import Header from "../src/flat/Header";
 import ContinueButton from "../src/flat/ContinueButton";
 import Divider from "../src/flat/Divider";
 import AlreadyHaveAnAccount from "../src/flat/AlreadyHaveAnAccount";
-import { AccountInterface } from "../src/features/Authentication/interface";
 import { setAccount } from "../src/features/Authentication/authenticationSlice";
 import useRegisterMutation from "../src/features/Authentication/Register/hooks/useRegister";
 import useCheckAccountIdExistsMutation from "../src/features/Authentication/Register/hooks/useCheckAccountIdExists";
 import useNavigateToMainPageIfLoggedIn from "../src/features/Authentication/Register/hooks/useNavigateToMainPageIfLoggedIn";
 import { RootState } from "../src/store";
 import accounts from "../mockdata/accounts.json";
-
 interface Errors {
   accountId: string[];
 }
@@ -93,7 +92,7 @@ function CreateAccount() {
 
   return (
     <>
-      <Header title="Create NEAR account" />
+      <Header title="Create NEAR account" rightAddon={<CloseIcon h="10px" />}/>
       <Box width="100%">
         <Flex flexFlow="column" width="100%" p={4}>
           <Text fontSize="14px" color="#808080">
@@ -111,8 +110,8 @@ function CreateAccount() {
               id="full_name"
               placeholder="Ex. John doe"
             />
-            <FormLabel htmlFor="account_id" color="#808080" mt={3}>
-              Account ID
+            <FormLabel htmlFor="account_id" color="#808080" mt={3} alignItems="center" display="flex">
+              Account ID <InfoIcon ml={2}/>
             </FormLabel>
             <InputGroup>
               <Input

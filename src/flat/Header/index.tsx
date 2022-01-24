@@ -8,10 +8,13 @@ import {
   StarIcon,
   TriangleDownIcon,
 } from "@chakra-ui/icons";
-import { HeaderProps, NonAuthenticatedHeaderProps } from "./interface";
+import {
+  HeaderProps,
+  NonAuthenticatedHeaderProps,
+} from "./interface";
 import { RootState } from "../../store";
 
-function Header({ title }: HeaderProps) {
+function Header({ title, rightAddon }: HeaderProps) {
   const { isLoggedIn } = useSelector(
     (state: RootState) => state.authentication
   );
@@ -28,7 +31,7 @@ function Header({ title }: HeaderProps) {
       {isLoggedIn ? (
         <AuthenticatedHeader />
       ) : (
-        <NonAuthenticatedHeader title={title} />
+        <NonAuthenticatedHeader title={title} rightAddon={rightAddon}/>
       )}
     </Flex>
   );
@@ -67,11 +70,16 @@ function AuthenticatedHeader() {
   );
 }
 
-function NonAuthenticatedHeader({ title }: NonAuthenticatedHeaderProps) {
-  return title ? (
-    <Text>{title}</Text>
-  ) : (
-    <Image src="/homepage.png" height="25px" />
+function NonAuthenticatedHeader({ title, rightAddon }: NonAuthenticatedHeaderProps) {
+  return (
+    <Flex alignItems="center" position="relative" width="100%" justifyContent="center">
+      {title ? (
+        <Text>{title}</Text>
+      ) : (
+        <Image src="/homepage.png" height="25px" />
+      )}
+      <Flex position="absolute" right="20px">{rightAddon}</Flex>
+    </Flex>
   );
 }
 

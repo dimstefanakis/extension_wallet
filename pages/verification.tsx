@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { Flex, Text, HStack } from "@chakra-ui/layout";
 import { PinInput, PinInputField } from "@chakra-ui/pin-input";
+import { CloseIcon } from "@chakra-ui/icons";
 import Header from "../src/flat/Header";
 import ContinueButton from "../src/flat/ContinueButton";
 import Divider from "../src/flat/Divider";
@@ -44,7 +45,7 @@ function Verification() {
 
   return (
     <>
-      <Header title="Verification" />
+      <Header title="Verification" rightAddon={<CloseIcon h="10px"/>}/>
       <Flex flexFlow="column" justifyContent="center" mt={6}>
         <Text fontSize="14px" textAlign="center">
           We&apos;ve sent a 6-digit verification code to{" "}
