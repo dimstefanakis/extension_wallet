@@ -1,3 +1,18 @@
+# Before nextjs stuff
+## Libraries used
+- React query
+- Redux toolkit
+- Chakra UI
+- React input mask
+- React testing library
+## Folder structure
+The folder structure is the *features / flat (or components)* design. Basically anything that classifies as a *feature* will go under the *feature* folder, this is mostly business logic and similar stuff. Anything else purely for design / layout / containers etc will go under the *flat* folder.
+## Mock data
+Mock data are available in the `/mockdata` folder
+
+## Mock api requests
+Mock api requests are under `/src/features/Authentication/Register/hooks` and are mocked used *react-query mutations and queries*
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
