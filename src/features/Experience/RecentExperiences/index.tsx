@@ -15,6 +15,7 @@ function RecentExperiences() {
             description={experience.description}
             userCount={experience.userCount}
             color={experience.color}
+            slug={experience.slug}
           />
         );
       })}

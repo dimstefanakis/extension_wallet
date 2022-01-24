@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { Flex, Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
 import { ChevronRightIcon } from "@chakra-ui/icons";
@@ -8,10 +9,17 @@ function ExperiencePreview({
   description,
   userCount,
   avatar,
+  slug,
   color,
 }: ExperienceProps) {
+  const router = useRouter();
+
+  function handleExperiencePreviewClick(){
+    router.push(`/experience/${slug}`)
+  }
+
   return (
-    <Flex mb="10px" alignItems="center">
+    <Flex mb="10px" alignItems="center" onClick={handleExperiencePreviewClick}>
       <Image h="75px" w="75px" src={avatar} mr="17px" />
       <Flex flexFlow="column" flex="1" justifyContent="space-evenly">
         <Text fontSize="16px" fontWeight="600" color="text.200">

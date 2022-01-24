@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { Flex, Text, HStack } from "@chakra-ui/layout";
 import { PinInput, PinInputField } from "@chakra-ui/pin-input";
@@ -12,6 +13,7 @@ import { RootState } from "../src/store";
 
 function Verification() {
   useNavigateToMainPageIfLoggedIn();
+  const router = useRouter();
   const verify = useVerificationMutation();
   const [pinValue, setPinValue] = useState("");
   const [pinValueComplete, setPinValueComplete] = useState(false);
@@ -33,6 +35,12 @@ function Verification() {
   function onContinueClick() {
     verify.mutate(parseInt(pinValue));
   }
+
+  useEffect(()=>{
+    if(verify.isSuccess){
+      router.push('/create_account');
+    }
+  }, [verify.status])
 
   return (
     <>
