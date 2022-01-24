@@ -4,7 +4,7 @@ import { AuthenticationState } from "./interface";
 export const authenticationSlice = createSlice({
   name: "authentication",
   initialState: <AuthenticationState>{
-    isLoggedIn: true,
+    isLoggedIn: false,
     account: {},
     // verification page needs to know which method the user registered
     registerType: "email",

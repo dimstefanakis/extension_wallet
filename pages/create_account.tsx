@@ -17,6 +17,7 @@ import AlreadyHaveAnAccount from "../src/flat/AlreadyHaveAnAccount";
 import { AccountInterface } from "../src/features/Authentication/interface";
 import { setAccount } from "../src/features/Authentication/authenticationSlice";
 import useRegisterMutation from "../src/features/Authentication/Register/hooks/useRegister";
+import useCheckAccountIdExistsMutation from "../src/features/Authentication/Register/hooks/useCheckAccountIdExists";
 import useNavigateToMainPageIfLoggedIn from "../src/features/Authentication/Register/hooks/useNavigateToMainPageIfLoggedIn";
 import { RootState } from "../src/store";
 import accounts from "../mockdata/accounts.json";
@@ -32,6 +33,7 @@ function CreateAccount() {
   useNavigateToMainPageIfLoggedIn();
   const dispatch = useDispatch();
   const register = useRegisterMutation();
+  const checkIfAccountIdExists = useCheckAccountIdExistsMutation();
   const { registerType, registerValue } = useSelector(
     (state: RootState) => state.authentication
   );
@@ -50,11 +52,11 @@ function CreateAccount() {
   }
 
   useEffect(() => {
-    if (
-      accounts.some(
-        (account: AccountInterface) => account.account_id === accountId
-      )
-    ) {
+    checkIfAccountIdExists.mutate(accountId);
+  }, [accountId]);
+
+  useEffect(()=>{
+    if (checkIfAccountIdExists.data) {
       setErrors({
         ...errors,
         accountId: [...errors.accountId, "Account ID already taken!"],
@@ -65,7 +67,7 @@ function CreateAccount() {
         accountId: [],
       });
     }
-  }, [accountId]);
+  }, [checkIfAccountIdExists.data])
 
   useEffect(()=>{
     if(register.isSuccess){
@@ -129,7 +131,7 @@ function CreateAccount() {
           </FormControl>
           <Flex width="100%" justifyContent="center" alignItems="center">
             <ContinueButton
-              isLoading={register.isLoading}
+              isLoading={register.isLoading || checkIfAccountIdExists.isLoading}
               onClick={onRegisterClick}
               isDisabled={
                 errors.accountId.length > 0 || name == "" || accountId == ""

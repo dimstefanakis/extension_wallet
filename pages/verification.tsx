@@ -7,9 +7,11 @@ import Header from "../src/flat/Header";
 import ContinueButton from "../src/flat/ContinueButton";
 import Divider from "../src/flat/Divider";
 import useVerificationMutation from "../src/features/Authentication/Register/hooks/useVerification";
+import useNavigateToMainPageIfLoggedIn from "../src/features/Authentication/Register/hooks/useNavigateToMainPageIfLoggedIn";
 import { RootState } from "../src/store";
 
 function Verification() {
+  useNavigateToMainPageIfLoggedIn();
   const verify = useVerificationMutation();
   const [pinValue, setPinValue] = useState("");
   const [pinValueComplete, setPinValueComplete] = useState(false);
